@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_ui/screens/header_parts.dart';
 import 'package:grocery_ui/utils/colors.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,23 +21,43 @@ class _HomePageState extends State<HomePage> {
         unselectedItemColor: Colors.purple[200],
         items: const [
         BottomNavigationBarItem(
-          icon: Icon(Icons.home), 
-          label: 'Home'),
+          icon: Icon(
+            Icons.home,
+            size: 30,
+          ), 
+          label: 'Home'
+          ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.chat), 
-          label: 'Chat'),
+          icon: Icon(
+            Icons.chat,
+            ), 
+          label: 'Chat'
+          ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.shopping_cart), 
-          label: 'Cart'),
+          icon: Icon(
+            Icons.shopping_cart,
+            ), 
+          label: 'Cart'
+          ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.notifications), 
-          label: 'Notification'),
+          icon: Icon(
+            Icons.notifications,
+            ), 
+          label: 'Notification'
+          ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.favorite), 
-          label: 'Favorite'),
+          icon: Icon(
+            Icons.favorite,
+            ), 
+          label: 'Favorite'
+          ),
       ],),
       body: ListView(
-        children: [],
+        children: const [
+          SizedBox(height: 15),
+          // For header parts
+          HeaderParts(),
+        ],
       ),
     );
   }
