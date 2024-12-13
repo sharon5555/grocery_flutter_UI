@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_ui/screens/header_parts.dart';
+import 'package:grocery_ui/screens/items_display.dart';
 import 'package:grocery_ui/utils/colors.dart';
 
 class HomePage extends StatefulWidget {
@@ -57,6 +58,8 @@ class _HomePageState extends State<HomePage> {
           SizedBox(height: 15),
           // For header parts
           HeaderParts(),
+          // For Body Parts
+          ItemsDisplay(),
         ],
       ),
     );
