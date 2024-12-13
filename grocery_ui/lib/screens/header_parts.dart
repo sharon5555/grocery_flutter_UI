@@ -8,6 +8,7 @@ class HeaderParts extends StatefulWidget {
   State<HeaderParts> createState() => _HeaderPartsState();
 }
 
+int indexCategory =0;
 class _HeaderPartsState extends State<HeaderParts> {
   @override
   Widget build(BuildContext context) {
@@ -22,21 +23,100 @@ class _HeaderPartsState extends State<HeaderParts> {
           const SizedBox(
           height: 21,
         ),
-        Container(
-          height: 55,
-          margin: const EdgeInsets.symmetric(horizontal: 15),
-          padding: const EdgeInsets.only(right: 5),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-          ),
-          child: const Row(
-            children: [
-              Expanded(child: TextField()),
-            ],
-          ),
+        searchBar(),
+          const SizedBox(
+          height: 30,
         ),
+        categorySelection(),
       ],
     );
+  }
+
+  Padding categorySelection() {
+    // list of times
+    List list = ['All', 'Fruits', 'Vegetables', 'Grocery'];
+    return Padding(
+      padding: const EdgeInsets.only(
+        left: 10, 
+        right: 10,
+      ),
+      child: SizedBox(
+          height: 35,
+          child: ListView.builder(
+            itemCount: list.length,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index){
+            return GestureDetector(
+              onTap: () {
+                setState(() {
+                  indexCategory = index;
+                });
+              },
+              child: Container(
+                alignment: Alignment.center,
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    left: 15, right: 10,
+                ),
+                child: Text(
+                  list[index], 
+                  style: TextStyle(
+                    fontSize: 20, 
+                    color: indexCategory == index 
+                    ? primaryColors 
+                    :Colors.black45,
+                    fontWeight: indexCategory == index?FontWeight.bold:null,
+                  ),
+                  ),
+                ),
+              ),
+            );
+          }),
+        ),
+    );
+  }
+
+  Container searchBar() {
+    return Container(
+        height: 55,
+        margin: const EdgeInsets.symmetric(horizontal: 15),
+        padding: const EdgeInsets.only(right: 5),
+        decoration: BoxDecoration(
+          color: Colors.purple[50],
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Row(
+          children: [
+            const Expanded(
+              child: TextField(
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                prefixIcon: Icon(Icons.search, color: primaryColors),
+                hintText: "Search food",
+                hintStyle: TextStyle(color: Colors.black26),
+              ),
+            ),
+            ),
+            Material(
+              color: primaryColors,
+              borderRadius: BorderRadius.circular(10),
+              child: InkWell(
+                onTap: () {},
+                borderRadius: BorderRadius.circular(10),
+                child: Container(
+                  height: 40,
+                  width: 40,
+                  alignment: Alignment.center,
+                  child: const Icon( 
+                    Icons.insert_emoticon_sharp, 
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
   }
 
   Padding title() {
