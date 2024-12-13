@@ -66,6 +66,9 @@ flutter:
     - assets/Avocado.webp
     - assets/burger.jpeg
     - assets/FruitSalad.jpg
+    - assets/milk.jpg
+    - assets/nuts.jpeg
+    - assets/protein.webp
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
