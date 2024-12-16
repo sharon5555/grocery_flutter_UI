@@ -114,7 +114,7 @@ class _ItemsDisplayState extends State<ItemsDisplay> {
                   ),
                   // For the Icon Favorite....
                   const Padding(
-                    padding: EdgeInsets.only(left: 250, top: 10),
+                    padding: EdgeInsets.only(left: 150, top: 10),
                     child: Icon(
                       Icons.favorite_border, 
                       color: Colors.black45, 
